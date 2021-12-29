@@ -22,7 +22,7 @@ test('ship hit', () => {
 
 test('is ship suck', () => {
   const ship = ships(4);
-  for (let i = 1; i <= 4; i++) {
+  for (let i = 1; i <= 4; i += 1) {
     ship.hit(i);
   }
   expect(ship.isSunk()).toBeTruthy();

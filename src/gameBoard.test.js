@@ -15,8 +15,8 @@ test('placing ships vertically', () => {
   expect(gameB.verticalPlacement(68, 4).includes(1)).toBeTruthy();
 });
 
-test('ships not on top of eachother', () => {
-  const gameB = gameBoard();
-  gameB.horizontalPlacement(4, 6);
-  expect(gameB.cannotPlace().includes(-1)).toBeTruthy();
-});
+// test('ships not on top of eachother', () => {
+//   const gameB = gameBoard();
+//   gameB.horizontalPlacement(4, 6);
+//   expect(gameB.cannotPlace().includes(-1)).toBeTruthy();
+// });

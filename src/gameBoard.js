@@ -7,12 +7,12 @@ function gameBoard() {
     const ship1 = ship(length);
     const shipIndex = length - 1;
     if (Math.floor((start + shipIndex) / 10) === Math.floor(start / 10)) {
-      boardArray.fill(1, start, length);
-      for (let i = 0; i < length; i++) {
+      boardArray.fill(1, start, (start + length));
+      for (let i = 0; i < length; i += 1) {
         ship1.shipArray[i] = start + i;
       }
     }
-    return ship1.shipArray;
+    return boardArray;
   };
 
   const verticalPlacement = (start, length) => {
@@ -32,7 +32,11 @@ function gameBoard() {
   };
 
   const cannotPlace = (start) => {
-
+    if (start) {
+      boardArray[start - 10] = -1;
+      boardArray[start - 1] = -1;
+      boardArray[start + 1] = -1;
+    }
   };
 
   return {

@@ -12,7 +12,7 @@ test('testing array made from length', () => {
 
 test('ship hit', () => {
   const ship = ships(4);
-  expect(ship.hit(2)).toEqual([0, 1, 0, 0]);
+  expect(ship.hit(2)).toEqual([0, 0, 'H', 0]);
 });
 
 test('ship hit', () => {
@@ -22,7 +22,7 @@ test('ship hit', () => {
 
 test('is ship suck', () => {
   const ship = ships(4);
-  for (let i = 1; i <= 4; i += 1) {
+  for (let i = 0; i < 4; i += 1) {
     ship.hit(i);
   }
   expect(ship.isSunk()).toBeTruthy();

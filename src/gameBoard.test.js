@@ -1,8 +1,15 @@
-const gameBoard = require('./gameBoard');
+import gameBoard from './gameBoard.js';
 
 test('array of length 100 created', () => {
   const gameB = gameBoard();
   expect(gameB.boardArray.length).toBe(100);
+});
+
+test('can place function', () => {
+  const gameB = gameBoard();
+  gameB.verticalPlacement(0, 5);
+  gameB.horizontalPlacement(55, 2);
+  expect(gameB.canPlace(20, 3, 'vertical')).toBeFalsy();
 });
 
 test('placing ships horizontally', () => {

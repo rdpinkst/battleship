@@ -1,32 +1,27 @@
-const ship = require('./ship');
+import ship from './ship.js';
 
-function gameBoard() {
+export default function gameBoard() {
   const boardArray = Array.from(Array(100), () => 0);
   const ships = [];
 
   const canPlace = (start, length, direction) => {
     let placeOk = true;
 
-    switch (direction) {
-      case 'vertical':
-        for (let i = start; i < length; i += 10) {
-          if (boardArray[i] !== 0) {
-            placeOk = false;
-            return;
-          }
+    if (direction === 'vertical') {
+      for (let i = start; i < (start + 10 * length); i += 10) {
+        if (boardArray[i] !== 0) {
+          placeOk = false;
+          break;
         }
-        break;
-      case 'horizontal':
-        for (let i = start; i < length; i += 1) {
-          if (boardArray[i] !== 0) {
-            placeOk = false;
-            return;
-          }
+      }
+    }
+    if (direction === 'horizontal') {
+      for (let i = start; i < (start + length); i += 1) {
+        if (boardArray[i] !== 0) {
+          placeOk = false;
+          break;
         }
-        break;
-      default:
-        console.log('Pick a direction of vertical or horizonal');
-        break;
+      }
     }
 
     return placeOk;
@@ -35,13 +30,17 @@ function gameBoard() {
   const horizontalPlacement = (start, length) => {
     const ship1 = ship(length);
     const shipIndex = length - 1;
-    if (Math.floor((start + shipIndex) / 10) === Math.floor(start / 10) && canPlace(start, length, 'horizontal')) {
+    const placeShip = canPlace(start, length, 'horizontal');
+
+    if (placeShip && (Math.floor((start + shipIndex) / 10) === Math.floor(start / 10))) {
       boardArray.fill(1, start, (start + length));
       for (let i = 0; i < length; i += 1) {
         ship1.shipArray[i] = start + i;
       }
+      ships.push(ship1);
+    } else {
+      console.log('cannot place');
     }
-    ships.push(ship1);
     return boardArray;
   };
 
@@ -50,12 +49,16 @@ function gameBoard() {
     const shipIndex = length - 1;
     const finalIndex = start + (shipIndex * 10);
     let startShip = 0;
+    const placeShip = canPlace(start, length, 'vertical');
 
     for (let i = start; i <= finalIndex; i += 10) {
-      if (start >= 0 || (start <= 99 && finalIndex <= 99) && canPlace(start, length, 'vertical')) {
+      if (placeShip && (start >= 0 && finalIndex <= 99)) {
         boardArray[i] = 1;
         ship1.shipArray[startShip] = i;
         startShip += 1;
+      } else {
+        console.log('cannot place');
+        break;
       }
     }
     ships.push(ship1);
@@ -87,4 +90,4 @@ function gameBoard() {
   };
 }
 
-module.exports = gameBoard;
+// module.exports = gameBoard;

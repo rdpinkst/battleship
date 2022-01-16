@@ -6,6 +6,7 @@ module.exports = {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
   },
+  mode: 'production',
   module: {
     rules: [
       {
@@ -13,12 +14,12 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       },
     ],
-    loaders: [
-      { exclude: ['node_modules'], loader: 'babel', test: /\.jsx?$/ },
-      { loader: 'style-loader!css-loader', test: /\.css$/ },
-      { loader: 'url-loader', test: /\.gif$/ },
-      { loader: 'file-loader', test: /\.(ttf|eot|svg)$/ },
-    ],
+    // loaders: [
+    //   { exclude: ['node_modules'], loader: 'babel', test: /\.jsx?$/ },
+    //   { loader: 'style-loader!css-loader', test: /\.css$/ },
+    //   { loader: 'url-loader', test: /\.gif$/ },
+    //   { loader: 'file-loader', test: /\.(ttf|eot|svg)$/ },
+    // ],
   },
   resolve: {
     alias: {

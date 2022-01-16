@@ -1,4 +1,4 @@
-function ship(length) {
+export default function ship(length) {
   const shipArray = Array.from(Array(length), () => 0);
 
   const hit = (x) => {
@@ -15,4 +15,4 @@ function ship(length) {
   };
 }
 
-module.exports = ship;
+// module.exports = ship;

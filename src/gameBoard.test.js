@@ -5,12 +5,12 @@ test('array of length 100 created', () => {
   expect(gameB.boardArray.length).toBe(100);
 });
 
-test('can place function', () => {
-  const gameB = gameBoard();
-  gameB.verticalPlacement(0, 5);
-  gameB.horizontalPlacement(55, 2);
-  expect(gameB.canPlace(20, 3, 'vertical')).toBeFalsy();
-});
+// test('can place function', () => {
+//   const gameB = gameBoard();
+//   gameB.horizontalPlacement(20, 5);
+//   gameB.horizontalPlacement(55, 2);
+//   expect(gameB.canPlace(0, 5, 'vertical')).toBeFalsy();
+// });
 
 test('placing ships horizontally', () => {
   const gameB = gameBoard();

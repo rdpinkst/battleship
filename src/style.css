@@ -1,37 +1,91 @@
 body{
     box-sizing: border-box;
     margin: 0;
+    background-color: #25274D;
+    color: #2E9CCA;
 }
 h1{
     text-align: center;
     font-size: 3rem;
     margin-top: 3rem;
 }
+p{
+    text-align: center;
+    font-size: 2rem;
+}
+#button-center{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+#boat-direction{
+    text-align: center;
+}
 .container{
     display: flex;
     justify-content: space-around;
-    margin-top: 4rem;
+    margin: 0 5rem 0 5rem;
+}
+#winner{
+    position: absolute;
+    z-index: 1;
+    background-color: black;
+    color: white;
 }
 .player, .computer{
-    border: 1px solid black;
+    border: 1px solid white;
     width:500px;
     height: 500px;
     display: grid;
     grid-template-columns: repeat(10, 1fr);
     grid-template-rows: repeat(10, 1fr);
+    background-color: #AAABB8;
     
 }
 .grid{
-    border: 1px solid black;
+    border: 1px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .hit{
     font-weight: 700;
-    color: red;
+    background-color: red;
+    color: white;
 }
 .missed{
     font-weight: 700;
-    color: blue;
+    color: white;
+    background-color: blue;
 }
 .ship{
     background-color: grey;
+}
+.cannot-place{
+    background-color: red;
+}
+.hide{
+    display: none;
+}
+
+#new-game{
+    position: absolute;
+    top: 35%;
+}
+
+.computer > .grid:hover{
+    border: #29648A 1px solid;
+}
+
+button{
+    border: none;
+    background-color: #2E9CCA;
+    color: white;
+    padding: .5em;
+    font-size: 1rem;
+}
+
+#start{
+    position: absolute;
+    margin-top: 2rem;
 }

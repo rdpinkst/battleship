@@ -8,9 +8,24 @@
 </head>
 <body>
     <h1>Battleship</h1>
+    <div>
+    <p id="turn"></p>
+    <div id="button-center">
+        <button id="boat-direction">Horizontal</button>
+    </div>
+    </div>
     <div class="container">
-        <div class="player"></div>
-        <div class="computer"></div>
+        <h1 id = "winner"></h1>
+        <button id = "new-game" class="hide">Play Again</button>
+        <div>
+            <p>Your Board</p>
+            <div class="player"></div>
+            <button id="start" class="hide">Start Game</button>
+        </div>
+        <div>
+            <p>Enemy Board</p>
+            <div class="computer"></div>
+        </div>
     </div>
     <script src="main.js"></script>
 </body>

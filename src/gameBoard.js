@@ -61,7 +61,9 @@ export default function gameBoard() {
         break;
       }
     }
-    ships.push(ship1);
+    if (ship1.length > 0) {
+      ships.push(ship1);
+    }
     return boardArray;
   };
 
@@ -73,7 +75,7 @@ export default function gameBoard() {
           boat.hit(boat.shipArray.indexOf(location));
         }
       });
-    } else {
+    } else if (boardArray[location] === 0) {
       boardArray[location] = 'M';
     }
     return boardArray;
@@ -83,11 +85,11 @@ export default function gameBoard() {
 
   return {
     boardArray,
+    ships,
+    canPlace,
     horizontalPlacement,
     verticalPlacement,
     receivedAttack,
     allSunk,
   };
 }
-
-// module.exports = gameBoard;
